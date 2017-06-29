@@ -1,0 +1,155 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <title>simplestyle_7</title>
+  <meta name="description" content="website description" />
+  <meta name="keywords" content="website keywords, website keywords" />
+  <meta http-equiv="content-type" content="text/html; charset=windows-1252" />
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine&amp;v1" />
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz" />
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+<style type="text/css">
+<!--
+#main #site_content #content {
+	font-family: Arial, Helvetica, sans-serif;
+}
+#main #site_content #content blockquote p {
+	font-family: Arial, Helvetica, sans-serif;
+}
+-->
+</style>
+</head>
+
+<body>
+  <div id="main">
+    <div id="header">
+      <div id="logo">
+        <h1><a href="#">DREEP</a></h1>
+        <div class="slogan"></div>
+      </div>
+      <div id="menubar">
+        <ul id="menu">
+          <!-- put class="current" in the li tag for the selected page - to highlight which page you're on -->
+          <li><a href="index.html">Home</a></li>
+          <li class="current"><a href="manual.html">Manual</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="author.html">Author</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="site_content">
+      <div id="sidebar_container">
+        <img class="paperclip" src="style/paperclip.png" alt="paperclip" />
+        <div class="sidebar">
+        <!-- insert your sidebar items here -->
+        <h3>Latest News</h3>
+        <h4>What's the News?</h4>
+        <h5>&nbsp;</h5>
+</div>
+       
+             </div>
+      <div id="content">
+        <!-- insert the page content here -->
+        <h1>Manual</h1>
+        <h2>1.Generating pileup file from sorted SAM   file</h2>
+        <p><BR jQuery15204608529293966202="88">
+        To build a pileup file, you need CRISP   package <A href="/nf/redirect/?path=http%3A//polymorphism.scripps.edu/%7Evbansal/software/CRISP/" rel="nofollow" jQuery15204608529293966202="89">http://polymorphism.scripps.edu/~vbansal/software/CRISP/</A> (in case they shut down the webpage sometimes, you can contact its author or   me)
+        </p>
+        <BLOCKQUOTE jQuery15204608529293966202="90">          
+          <p><strong>python sam_to_pileup.py indi1.sorted.sam   refsequence.fasta &gt; indi1.pileup        </strong></p>
+        </BLOCKQUOTE>
+        <h2>2. Generating ssp file from the pileup file (indi.pileup)</h2>
+<BR jQuery15204608529293966202="93">
+        Refine the pileup file by mismatch number,   quality score, mapping quality score
+        <BLOCKQUOTE jQuery15204608529293966202="94">          
+          <p><strong>perl filter_and_summary.pl</strong><BR jQuery15204608529293966202="96">
+            <STRONG jQuery15204608529293966202="97"><EM jQuery15204608529293966202="98">-i</EM></STRONG> pileup file <BR jQuery15204608529293966202="99">
+            <STRONG jQuery15204608529293966202="100"><EM jQuery15204608529293966202="101">-d</EM></STRONG> number of mismatches allowed <BR jQuery15204608529293966202="102">
+            <STRONG jQuery15204608529293966202="103"><EM jQuery15204608529293966202="104">-q</EM></STRONG> minimum quality score<BR jQuery15204608529293966202="105">
+            <STRONG jQuery15204608529293966202="106"><EM jQuery15204608529293966202="107">-m</EM></STRONG> minimum mapping quality   score<BR jQuery15204608529293966202="108">
+            <STRONG jQuery15204608529293966202="109"><EM jQuery15204608529293966202="110">-r</EM></STRONG> length of the reads<BR jQuery15204608529293966202="111">
+            <STRONG jQuery15204608529293966202="112"><EM jQuery15204608529293966202="113">-s</EM></STRONG> length of the read   bins&lt;10bp&gt;<BR jQuery15204608529293966202="114">
+        to save the output, use   "&gt; output.file"</p>
+</BLOCKQUOTE>
+        <h2>3. Generating error profile by using   reference panel (for POISSON method)</h2>
+<BR jQuery15204608529293966202="116">
+        All the   ssp files should be saved in one folder, and with a specific suffix
+        <BLOCKQUOTE jQuery15204608529293966202="117">          
+          <p><strong>perl error_profile_pois.pl</strong><BR jQuery15204608529293966202="119">
+            <STRONG jQuery15204608529293966202="120"><EM jQuery15204608529293966202="121">-d</EM></STRONG> folder including all   population data(in ssp format)<BR jQuery15204608529293966202="122">
+            <STRONG jQuery15204608529293966202="123"><EM jQuery15204608529293966202="124">-s</EM></STRONG> suffix of the ssp files<BR jQuery15204608529293966202="125">
+            <STRONG jQuery15204608529293966202="126"><EM jQuery15204608529293966202="127">-i</EM></STRONG> length of the read   bins&lt;10bp&gt;<BR jQuery15204608529293966202="128">
+            <STRONG jQuery15204608529293966202="129"><EM jQuery15204608529293966202="130">-r</EM></STRONG> length of the reads<BR jQuery15204608529293966202="131">
+        by using this scrip, you should have   error_pois.index and error_pois.position under the same folder        </p>
+        </BLOCKQUOTE>
+        <h2>3.1 Generating error profile by using   reference panel (for EMP method)</h2>
+        <p><BR jQuery15204608529293966202="133">
+          All the ssp   files should be saved in one folder, and with a specific suffix.</p>
+        <BLOCKQUOTE jQuery15204608529293966202="134">
+          <p><strong>perl error_profile_emp.pl</strong><BR jQuery15204608529293966202="136">
+            <STRONG jQuery15204608529293966202="137"><EM jQuery15204608529293966202="138">-d</EM></STRONG> folder including all   population data(in ssp format)<BR jQuery15204608529293966202="139">
+            <STRONG jQuery15204608529293966202="140"><EM jQuery15204608529293966202="141">-s</EM></STRONG> suffix of the ssp files<BR jQuery15204608529293966202="142">
+            <STRONG jQuery15204608529293966202="143"><EM jQuery15204608529293966202="144">-i</EM></STRONG> length of the read   bins&lt;10bp&gt;<BR jQuery15204608529293966202="145">
+            <STRONG jQuery15204608529293966202="146"><EM jQuery15204608529293966202="147">-m</EM></STRONG> minimum number of   samples,otherwise,combine nucleotides<BR jQuery15204608529293966202="148">
+            <STRONG jQuery15204608529293966202="149"><EM jQuery15204608529293966202="150">-t</EM></STRONG> minimum coverage in each   bin</p>
+          <p><BR jQuery15204608529293966202="151">
+            by using this scrip, you should have   error_emp.index under the same folder<BR jQuery15204608529293966202="152">
+            -t:   the bin whose coverage is lower than that defined by &lt;-t&gt; won't be   included in the reference error database<BR jQuery15204608529293966202="153">
+            -m:   if the entry number in the reference error database is lower than that defined   by &lt;-m&gt;, different nucleotides will be merged if their T-test   p-value&gt;0.005<BR jQuery15204608529293966202="154">
+            If the entry number in the   reference error database is lower than 10, nothing will be applied as it could   be highly biased<BR jQuery15204608529293966202="155">
+            If the entry number in the   reference error database is &gt;50 and lower than &lt;-m&gt;, fake error rate   would be generated assuming a normal distribution</p>
+        </BLOCKQUOTE>
+        <h2>4.Quality score calculation        With Poisson/EMP distribution
+        </h2>
+        <BLOCKQUOTE jQuery15204608529293966202="158">          
+          <p><strong>perl Dreep_poisson.pl</strong><BR jQuery15204608529293966202="160">
+            <STRONG jQuery15204608529293966202="161"><EM jQuery15204608529293966202="162">-i</EM></STRONG> ssp file<BR jQuery15204608529293966202="163">
+            <STRONG jQuery15204608529293966202="164"><EM jQuery15204608529293966202="165">-r</EM></STRONG> error profile file   (error_pois.index)<BR jQuery15204608529293966202="166">
+            <STRONG jQuery15204608529293966202="167"><EM jQuery15204608529293966202="168">-n</EM></STRONG> length of the reads   bins(10bp)<BR jQuery15204608529293966202="169">
+            <STRONG jQuery15204608529293966202="170"><EM jQuery15204608529293966202="171">-t</EM></STRONG> remove the C-stretch and STR   (for mitochondrial data)<BR jQuery15204608529293966202="172">
+            <STRONG jQuery15204608529293966202="173"><EM jQuery15204608529293966202="174">-e</EM></STRONG> use it when the questioned   individual is included in the reference panel<BR jQuery15204608529293966202="175">
+            <STRONG jQuery15204608529293966202="176"><EM jQuery15204608529293966202="177">-d</EM></STRONG> minimum coverage to apply   consensus-specific error profile(1000)        </p>
+        </BLOCKQUOTE>
+        <h2>4.1. With empirical distribution
+        </h2>
+        <BLOCKQUOTE jQuery15204608529293966202="179">          
+          <p><strong>perl Dreep_emp.pl</strong><BR jQuery15204608529293966202="181">
+            <STRONG jQuery15204608529293966202="182"><EM jQuery15204608529293966202="183">-i</EM></STRONG> ssp file<BR jQuery15204608529293966202="184">
+            <STRONG jQuery15204608529293966202="185"><EM jQuery15204608529293966202="186">-r</EM></STRONG> error profile file   (error_emp.index)<BR jQuery15204608529293966202="187">
+            <STRONG jQuery15204608529293966202="188"><EM jQuery15204608529293966202="189">-s</EM></STRONG> suffix of the ssp files<BR jQuery15204608529293966202="190">
+            <STRONG jQuery15204608529293966202="191"><EM jQuery15204608529293966202="192">-l</EM></STRONG> length of the read   bins(10bp)<BR jQuery15204608529293966202="193">
+            <STRONG jQuery15204608529293966202="194"><EM jQuery15204608529293966202="195">-m</EM></STRONG> minimum number of error rate   entries in error_emp.index,otherwise,merge different nucleotides at the same   position<BR jQuery15204608529293966202="196">
+            <STRONG jQuery15204608529293966202="197"><EM jQuery15204608529293966202="198">-s</EM></STRONG> lowest p_value for each   bin(the empirical p_value depends on the sample size, &lt;-s&gt; is used to   define the lower bound 0.01~0.001 would be fine).        </p>
+        </BLOCKQUOTE>
+        <p>An output with suffix of pois.log/emp.log   will be generated for each sample</p>
+        <h2>5. Specify your own heteroplasmy(LLM)   criteria</h2>
+        <BLOCKQUOTE jQuery15204608529293966202="202">          
+          <p><strong>perl Dreep_poi_filter.pl</strong><BR jQuery15204608529293966202="204">
+            <STRONG jQuery15204608529293966202="205"><EM jQuery15204608529293966202="206">-n</EM></STRONG> directory including all the   log file (output of Dreep_emp.pl Dreep_pois.pl)<BR jQuery15204608529293966202="207">
+            <STRONG jQuery15204608529293966202="208"><EM jQuery15204608529293966202="209">-s</EM></STRONG> suffix of all the result file   (log)<BR jQuery15204608529293966202="210">
+            <STRONG jQuery15204608529293966202="211"><EM jQuery15204608529293966202="212">-a</EM></STRONG> minor allele frequency<BR jQuery15204608529293966202="213">
+            <STRONG jQuery15204608529293966202="214"><EM jQuery15204608529293966202="215">-b</EM></STRONG> minor allele frequency per   strand<BR jQuery15204608529293966202="216">
+            <STRONG jQuery15204608529293966202="217"><EM jQuery15204608529293966202="218">-c</EM></STRONG> minor allele count<BR jQuery15204608529293966202="219">
+            <STRONG jQuery15204608529293966202="220"><EM jQuery15204608529293966202="221">-d</EM></STRONG> minor allele count per   strand<BR jQuery15204608529293966202="222">
+            <STRONG jQuery15204608529293966202="223"><EM jQuery15204608529293966202="224">-e</EM></STRONG> minor allele count (distinct   reads)<BR jQuery15204608529293966202="225">
+            <STRONG jQuery15204608529293966202="226"><EM jQuery15204608529293966202="227">-f</EM></STRONG> minor allele count per   strand(distinct reads)<BR jQuery15204608529293966202="228">
+            <STRONG jQuery15204608529293966202="229"><EM jQuery15204608529293966202="230">-g</EM></STRONG> minium coverage<BR jQuery15204608529293966202="231">
+            <STRONG jQuery15204608529293966202="232"><EM jQuery15204608529293966202="233">-h</EM></STRONG> minimum QS<BR jQuery15204608529293966202="234">
+            <STRONG jQuery15204608529293966202="235"><EM jQuery15204608529293966202="236">-i</EM></STRONG> minimum QS per strand<BR jQuery15204608529293966202="237">
+            <STRONG jQuery15204608529293966202="238"><EM jQuery15204608529293966202="239">-j</EM></STRONG> minimum perc of supported   reads (for pois only)<BR jQuery15204608529293966202="240">
+            <STRONG jQuery15204608529293966202="241"><EM jQuery15204608529293966202="242">-k</EM></STRONG> minimum perc of supported   reads per strand (for pois only)<BR jQuery15204608529293966202="243">
+            <STRONG jQuery15204608529293966202="244"><EM jQuery15204608529293966202="245">-l</EM></STRONG> maximum perc of the   3rd/3rd+4th allele (out of all non-major allele)<BR jQuery15204608529293966202="246">
+            <STRONG jQuery15204608529293966202="247"><EM jQuery15204608529293966202="248">-t</EM></STRONG> ignore the C-stretch region<BR jQuery15204608529293966202="249">
+        If you want it works for one file, give more   specific suffix        </p>
+        </BLOCKQUOTE>
+<p>&nbsp;</p>
+      </div>
+    </div>
+    <div id="footer">
+      <p>&nbsp;</p>
+    </div>
+  </div>
+</body>
+</html>
